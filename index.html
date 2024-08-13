@@ -10,7 +10,13 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       .navbar {
         background-color: rgb(42, 83, 193);
@@ -18,7 +24,7 @@
 
       .carouselAlign {
         width: 100%;
-        max-width: 70%;
+        max-width: 80%;
         margin: 0 auto;
       }
 
@@ -55,9 +61,45 @@
       .sidebar {
         word-break: break-all;
       }
-      .headerContainer{
-      display: flex;
-      margin-top: 100px;}
+      .headerContainer {
+        display: flex;
+        margin-top: 100px;
+      }
+      .card-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .card-img-top {
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        height: 150px;
+        overflow: hidden;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      @media screen and (max-width: 768px) {
+        .tabletBlock {
+          flex-direction: column;
+        }
+        .col-8 {
+          width: 100%;
+        }
+      }
+      @media screen and (min-width: 769px) {
+        .ms {
+          margin-left: 3rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -174,114 +216,179 @@
       <hr />
     </div>
     <!-- card -->
-    <div class="container mt-4">
-      <div class="row" id="cardContents">
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
-            <img class="card-img-top" src="https://picsum.photos/200/"alt="Card image cap"/>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+    <div class="tabletBlock d-flex">
+      <div class="col-8 ms">
+        <div class="container mt-4">
+          <div class="row" id="cardContents"></div>
         </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
-            <img class="card-img-top" src="https://picsum.photos/200/" alt="Card image cap"/>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+
+        <nav aria-label="...">
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="sidebar col-lg-3 justify-content-center mx-4">
+        <h4>selam</h4>
+        <hr />
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.
+          </p>
+          <div class="btn btn-primary">Read More</div>
         </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
-            <img
-              class="card-img-top"
-              src="https://picsum.photos/200/"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <h4>selam</h4>
-          <hr />
-          <div class="sidebar">
-            <p>
-              Lorem ipsum dolor sit amet consectetur
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.
-            </p>
-            <div class="btn btn-primary">Read More</div>
-          </div>
-          <hr />
-        </div>
+        <hr />
       </div>
     </div>
+
     <!-- card finished -->
     <!-- footer -->
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+    <footer
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"
+    >
       <div class="col mb-3">
-        <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-         foto
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
+        >
+          foto
         </a>
         <p class="text-body-secondary">© 2024</p>
       </div>
-  
-      <div class="col mb-3">
-  
-      </div>
-  
+
+      <div class="col mb-3"></div>
+
       <div class="col mb-3">
         <h5>Section</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">About</a>
+          </li>
         </ul>
       </div>
-  
+
       <div class="col mb-3">
         <h5>Section</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-body-secondary">About</a>
+          </li>
         </ul>
       </div>
-  
+
       <div class="col mb-3">
         <h5 class="text-center">Fallow Us</h5>
         <ul class="nav d-flex justify-content-center">
-          <li class="nav-item "><a href="#" class="nav-link "><i class="fa-brands fa-instagram"></i></a></li>
-          <li class="nav-item "><a href="#" class="nav-link"><i class="fa-brands fa-linkedin"></i></a></li>
-          <li class="nav-item "><a href="#" class="nav-link"><i class="fa-brands fa-facebook"></i></a></li>
-          <li class="nav-item "><a href="#" class="nav-link"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+          </li>
         </ul>
       </div>
     </footer>
     <!-- footer finished -->
-  <script>
-   
-  </script>
+    <script>
+      //sayfa yüklendiğinde getapi çalıştır
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".pagination .page-link");
+        buttons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            buttons.forEach((button)=>{button.classList.remove("active")});
+            button.classList.add("active");
+            const page = this.textContent;
+            getApi(page);
+            
+          });
+        });
+        getApi(1);
+      });
+
+      //json dosyasını çek
+      function getApi(page) {
+        const request = new XMLHttpRequest();
+        request.open("GET", `http://localhost:3000/page${page}`);
+        request.send();
+
+        request.addEventListener("load", function () {
+          if (this.status >= 200 && this.status < 300) {
+            const data = JSON.parse(this.responseText);
+            blogCard(data);
+            console.log(data);
+          } else {
+            console.log("Hata: " + this.statusText);
+          }
+        });
+
+        request.addEventListener("error", function () {
+          console.log("Request failed.");
+        });
+      }
+      //
+
+      //json carda yazdırma
+      function blogCard(news) {
+        const cardContents = document.getElementById("cardContents");
+        cardContents.innerHTML = "";
+
+        news.forEach((item) => {
+          const card = `
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
+                    <a href="#"><img class="card-img-top" src="https://picsum.photos/200/" alt="Card image cap"/></a>
+                    <div class="card-body">
+                        <a href="#"><h5 class="card-title">${item.title}</h5></a>
+                        <a href="#"><p class="card-text">${item.content}</p></a>
+                    </div>
+                </div>
+            </div>
+          `;
+          cardContents.innerHTML += card;
+        });
+      }
+    </script>
   </body>
 </html>
