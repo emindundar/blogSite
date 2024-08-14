@@ -136,8 +136,13 @@
           class="form-control mr-sm-2"
           type="search"
           placeholder="Search"
+          id="search"
         />
-        <button class="btn btn-dark my-2 my-sm-0 mx-2" type="button">
+        <button
+          class="btn btn-dark my-2 my-sm-0 mx-2"
+          id="searchBtn"
+          type="button"
+        >
           Search
         </button>
       </form>
@@ -221,14 +226,6 @@
         <div class="container mt-4">
           <div class="row" id="cardContents"></div>
         </div>
-
-        <nav aria-label="...">
-          <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-          </ul>
-        </nav>
       </div>
       <div class="sidebar col-lg-3 justify-content-center mx-4">
         <h4>selam</h4>
@@ -331,33 +328,24 @@
     </footer>
     <!-- footer finished -->
     <script>
-      //sayfa yüklendiğinde getapi çalıştır
       document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".pagination .page-link");
-        buttons.forEach((button) => {
-          button.addEventListener("click", function (e) {
-            e.preventDefault();
-            buttons.forEach((button)=>{button.classList.remove("active")});
-            button.classList.add("active");
-            const page = this.textContent;
-            getApi(page);
-            
-          });
-        });
-        getApi(1);
+        getApi();
       });
-
+       //buton işlevi
+       document.getElementById("searchBtn").addEventListener("click", function() {
+        displaySearch();
+      });
       //json dosyasını çek
-      function getApi(page) {
+      function getApi(item) {
         const request = new XMLHttpRequest();
-        request.open("GET", `http://localhost:3000/page${page}`);
+        request.open("GET", `http://localhost:3000/`);
         request.send();
 
         request.addEventListener("load", function () {
           if (this.status >= 200 && this.status < 300) {
             const data = JSON.parse(this.responseText);
             blogCard(data);
-            console.log(data);
+            
           } else {
             console.log("Hata: " + this.statusText);
           }
@@ -367,7 +355,18 @@
           console.log("Request failed.");
         });
       }
-      //
+      //search işlevi
+      function displaySearch() {
+        const inputValue = document.getElementById("search").value.toLowerCase();
+        const cardContents = document.getElementById("cardContents");
+
+        const filteredNews = news.filter((item) => {
+          return item.tags.some((tag) => tag.toLowerCase().includes(inputValue));
+        });
+
+        blogCard(filteredNews);
+      }
+
 
       //json carda yazdırma
       function blogCard(news) {
@@ -378,7 +377,7 @@
           const card = `
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
-                    <a href="#"><img class="card-img-top" src="https://picsum.photos/200/" alt="Card image cap"/></a>
+                    <a href="#"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
                     <div class="card-body">
                         <a href="#"><h5 class="card-title">${item.title}</h5></a>
                         <a href="#"><p class="card-text">${item.content}</p></a>
