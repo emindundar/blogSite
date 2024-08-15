@@ -100,6 +100,10 @@
           margin-left: 3rem;
         }
       }
+      #backTick {
+        margin-left: 10px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
     </style>
   </head>
   <body>
@@ -124,8 +128,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
+            >Home <span class="sr-only"></span
+          ></a>
           <a class="nav-item nav-link" href="#">Features</a>
           <a class="nav-item nav-link" href="#">Pricing</a>
           <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -221,9 +225,13 @@
       <hr />
     </div>
     <!-- card -->
+
     <div class="tabletBlock d-flex">
       <div class="col-8 ms">
-        <div class="container mt-4">
+        <button class="btn btn-outline-primary d-none" id="backTick">
+          <i class="fa-solid fa-arrow-left"></i> Come Back
+        </button>
+        <div class="container">
           <div class="row" id="cardContents"></div>
         </div>
       </div>
@@ -328,53 +336,84 @@
     </footer>
     <!-- footer finished -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        getApi();
-      });
-       //buton işlevi
-       document.getElementById("searchBtn").addEventListener("click", function() {
-        displaySearch();
-      });
-      //json dosyasını çek
-      function getApi(item) {
-        const request = new XMLHttpRequest();
-        request.open("GET", `http://localhost:3000/`);
-        request.send();
+      //buton search işlevi
+      $(document).ready(function () {
+        $("#searchBtn").on("click", function () {
+          const searchTag = $("#search").val().toLowerCase();
 
-        request.addEventListener("load", function () {
-          if (this.status >= 200 && this.status < 300) {
-            const data = JSON.parse(this.responseText);
+          $.ajax({
+            url: "http://localhost:3000/0",
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+              const cardContents = $("#cardContents");
+              cardContents.empty();
+              const backTick = $("#backTick");
+              backTick.removeClass("d-none");
+              backTick.addClass("d-block");
+              
+              data.forEach(function (item) {
+                const titleWords = item.title.toLowerCase().split(" ");
+                if (item.tags.map((tag) => tag.toLowerCase()).includes(searchTag) || titleWords.includes(searchTag)) {
+                  const card = createCard(item);
+                  cardContents.append(card);
+                };
+                
+                if (item.title.includes(searchTag)) {
+                  const card = createCard(item);
+                  cardContents.append(card);
+                };
+              });
+            },
+            error: function (xhr, status, error) {
+              console.error("Error:", error);
+            },
+          });
+        });
+        function createCard(item) {
+          return `
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
+                    <a href="#"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
+                    <div class="card-body">
+                        <a href="#"><h5 class="card-title">${item.title}</h5></a>
+                        <a href="#"><p class="card-text">${item.content}</p></a>
+                    </div>
+                </div>
+            </div>`;
+        }
+      });
+
+     //Json dosyasını carda yazdırma fonksiyonu
+      $(document).ready(function () {
+        $.ajax({
+          url: "http://localhost:3000/0",
+          method: "GET",
+          dataType: "json",
+          success: function (data) {
+            const cardContents = $("#cardContents");
+            cardContents.empty();
             blogCard(data);
-            
-          } else {
-            console.log("Hata: " + this.statusText);
-          }
+
+            $("#backTick").on("click", function () {
+            cardContents.innerHTML = "";
+            blogCard(data);
+            const backTick = $("#backTick");
+            backTick.addClass("d-none");
+            backTick.removeClass("d-block");
+          });
+          },
+          error: function (xhr, status, error) {
+            console.error("Error:", error);
+          },
         });
 
-        request.addEventListener("error", function () {
-          console.log("Request failed.");
-        });
-      }
-      //search işlevi
-      function displaySearch() {
-        const inputValue = document.getElementById("search").value.toLowerCase();
-        const cardContents = document.getElementById("cardContents");
+        function blogCard(news) {
+          const cardContents = document.getElementById("cardContents");
+          cardContents.innerHTML = "";
 
-        const filteredNews = news.filter((item) => {
-          return item.tags.some((tag) => tag.toLowerCase().includes(inputValue));
-        });
-
-        blogCard(filteredNews);
-      }
-
-
-      //json carda yazdırma
-      function blogCard(news) {
-        const cardContents = document.getElementById("cardContents");
-        cardContents.innerHTML = "";
-
-        news.forEach((item) => {
-          const card = `
+          news.forEach((item) => {
+            const card = `
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
                     <a href="#"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
@@ -385,9 +424,14 @@
                 </div>
             </div>
           `;
-          cardContents.innerHTML += card;
-        });
-      }
+            cardContents.innerHTML += card;
+          });
+        };
+        
+      });
+      //
+      
+
     </script>
   </body>
 </html>
