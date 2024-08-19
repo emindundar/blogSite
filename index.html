@@ -21,13 +21,22 @@
       .navbar {
         background-color: rgb(42, 83, 193);
       }
-
       .carouselAlign {
-        width: 100%;
-        max-width: 80%;
+        width: 80%;
         margin: 0 auto;
       }
+      .carousel-item {
+        height: 500px;
+      }
+      .carousel-item img {
+        object-fit: cover;
+      }
 
+      @media screen and (max-width: 1024px) {
+        .carousel-item {
+          height: 250px;
+        }
+      }
       .baslik {
         color: rgb(14, 28, 64);
         font-family: Arial, Helvetica, sans-serif;
@@ -104,6 +113,12 @@
         margin-left: 10px;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
       }
+      a:hover {
+        color: cadetblue;
+      }
+      footer a:hover {
+      color: blue !important;
+      }
     </style>
   </head>
   <body>
@@ -114,25 +129,14 @@
       crossorigin="anonymous"
     ></script>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#"
-            >Home <span class="sr-only"></span
-          ></a>
-          <a class="nav-item nav-link" href="#">Features</a>
-          <a class="nav-item nav-link" href="#">Pricing</a>
-          <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        <div class="navbar-nav ms-3">
+          <a class="nav-item nav-link active" href="#" style="font-weight: 800"
+            >TheBlog</a
+          >
+          <a class="nav-item nav-link active" href="#carouselAlign">Home</a>
+          <a class="nav-item nav-link active" href="#blogSection">Blog</a>
+          <a class="nav-item nav-link active" href="#footer">Footer</a>
         </div>
       </div>
       <form class="form-inline d-flex">
@@ -161,35 +165,13 @@
         Blog
       </p>
     </div>
-    <div class="carouselAlign">
+    <div class="carouselAlign" id="carouselAlign">
       <div
         id="carouselExampleAutoplaying"
         class="carousel slide"
         data-bs-ride="carousel"
       >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="https://picsum.photos/800/400"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://picsum.photos/800/400?2"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://picsum.photos/800/400?3"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-        </div>
+        <div class="carousel-inner" id="carousel-inner"></div>
         <button
           class="carousel-control-prev"
           type="button"
@@ -212,12 +194,28 @@
     </div>
     <!-- header finish -->
     <!-- filters button -->
-    <section class="mt-4">
-      <div class="button-row">
-        <button type="button" class="btn btn-primary">All</button>
-        <button type="button" class="btn btn-primary">Movie</button>
-        <button type="button" class="btn btn-primary">Sport</button>
-        <button type="button" class="btn btn-primary">Art</button>
+    <section class="mt-4" id="blogSection">
+      <div class="button-row" id="button-row">
+        <button id="btnAll" class="btn btn-primary" data-category="All">
+          All
+        </button>
+        <button id="btnArt" class="btn btn-outline-primary" data-category="Art">
+          Art
+        </button>
+        <button
+          id="btnSport"
+          class="btn btn-outline-primary"
+          data-category="Sport"
+        >
+          Sport
+        </button>
+        <button
+          id="btnMovie"
+          class="btn btn-outline-primary"
+          data-category="Movie"
+        >
+          Movie
+        </button>
       </div>
     </section>
     <!-- hr etiketi -->
@@ -225,7 +223,6 @@
       <hr />
     </div>
     <!-- card -->
-
     <div class="tabletBlock d-flex">
       <div class="col-8 ms">
         <button class="btn btn-outline-primary d-none" id="backTick">
@@ -235,203 +232,211 @@
           <div class="row" id="cardContents"></div>
         </div>
       </div>
+      <!-- sidebar -->
       <div class="sidebar col-lg-3 justify-content-center mx-4">
-        <h4>selam</h4>
-        <hr />
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.
-          </p>
-          <div class="btn btn-primary">Read More</div>
+        <h4 class="ms-2">Lasest News</h4>
+        <div class="container">
+          <div id="lasestNews">
+            <hr />
+          </div>
         </div>
-        <hr />
       </div>
     </div>
-
     <!-- card finished -->
-    <!-- footer -->
-    <footer
-      class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"
-    >
-      <div class="col mb-3">
-        <a
-          href="/"
-          class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
-        >
-          foto
-        </a>
-        <p class="text-body-secondary">© 2024</p>
-      </div>
-
-      <div class="col mb-3"></div>
-
-      <div class="col mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Features</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">About</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Features</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">About</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col mb-3">
-        <h5 class="text-center">Fallow Us</h5>
-        <ul class="nav d-flex justify-content-center">
-          <li class="nav-item">
-            <a href="#" class="nav-link"
-              ><i class="fa-brands fa-instagram"></i
+    <!-- Footer Start -->
+    <footer class="bg-dark text-white pt-4" id="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Footer Logo and Description -->
+          <div class="col-md-3">
+            <h5 class="mb-3">TheBlog</h5>
+            <p>
+              Stay updated with the latest news and opinions on various topics.
+              Join us to explore the world of art, sports, and movies.
+            </p>
+          </div>
+          <!-- Footer Links -->
+          <div class="col-md-3">
+            <h5 class="mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Home</a></li>
+              <li><a href="#" class="text-white">About Us</a></li>
+              <li><a href="#" class="text-white">Blog</a></li>
+              <li><a href="#" class="text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="mb-3">Contact</h5>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@theblog.com" class="text-white"
+                  >info@theblog.com</a
+                >
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+90258258255" class="text-white">+90 (258) 258 255 </a>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="text-white">Kınıklı, C, 20070, Hüseyin Yılmaz Cd. No:67, 20160 Merkezefendi/Denizli</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="mb-3">Follow Us</h5>
+            <a href="#" class="text-white me-3"
+              ><i class="fab fa-facebook-f"></i
             ></a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"
-              ><i class="fa-brands fa-linkedin"></i
+            <a href="#" class="text-white me-3"
+              ><i class="fab fa-twitter"></i
             ></a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"
-              ><i class="fa-brands fa-facebook"></i
+            <a href="#" class="text-white me-3"
+              ><i class="fab fa-instagram"></i
             ></a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"
-              ><i class="fa-brands fa-x-twitter"></i
+            <a href="https://www.linkedin.com/in/emindundar/" class="text-white"
+              ><i class="fab fa-linkedin-in"></i
             ></a>
-          </li>
-        </ul>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col text-center">
+            <p class="mb-0">&copy; 2024 TheBlog. All Rights Reserved.</p>
+          </div>
+        </div>
       </div>
     </footer>
-    <!-- footer finished -->
+    <!-- Footer End -->
     <script>
-      //buton search işlevi
       $(document).ready(function () {
-        $("#searchBtn").on("click", function () {
-          const searchTag = $("#search").val().toLowerCase();
+        const apiUrl = "http://localhost:3000/blogPosts";
 
+        // AJAX çağrısı yapma ve veri işleme
+        function fetchData(callback) {
           $.ajax({
-            url: "http://localhost:3000/0",
+            url: apiUrl,
             method: "GET",
             dataType: "json",
             success: function (data) {
-              const cardContents = $("#cardContents");
-              cardContents.empty();
-              const backTick = $("#backTick");
-              backTick.removeClass("d-none");
-              backTick.addClass("d-block");
-              
-              data.forEach(function (item) {
-                const titleWords = item.title.toLowerCase().split(" ");
-                if (item.tags.map((tag) => tag.toLowerCase()).includes(searchTag) || titleWords.includes(searchTag)) {
-                  const card = createCard(item);
-                  cardContents.append(card);
-                };
-                
-                if (item.title.includes(searchTag)) {
-                  const card = createCard(item);
-                  cardContents.append(card);
-                };
-              });
+              callback(data);
             },
             error: function (xhr, status, error) {
               console.error("Error:", error);
             },
           });
-        });
+        }
+
+        // Card oluşturma fonksiyonu
         function createCard(item) {
           return `
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
-                    <a href="#"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
-                    <div class="card-body">
-                        <a href="#"><h5 class="card-title">${item.title}</h5></a>
-                        <a href="#"><p class="card-text">${item.content}</p></a>
-                    </div>
-                </div>
-            </div>`;
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
+          <a href="#"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
+          <div class="card-body">
+            <a href="#"><h5 class="card-title">${item.title}</h5></a>
+            <a href="#"><p class="card-text">${item.content}</p></a>
+          </div>
+        </div>
+      </div>`;
         }
-      });
 
-     //Json dosyasını carda yazdırma fonksiyonu
-      $(document).ready(function () {
-        $.ajax({
-          url: "http://localhost:3000/0",
-          method: "GET",
-          dataType: "json",
-          success: function (data) {
+        // Arama buton işlevi
+        $("#searchBtn").on("click", function () {
+          const searchTag = $("#search").val().toLowerCase();
+          fetchData(function (data) {
             const cardContents = $("#cardContents");
             cardContents.empty();
-            blogCard(data);
-
-            $("#backTick").on("click", function () {
-            cardContents.innerHTML = "";
-            blogCard(data);
             const backTick = $("#backTick");
-            backTick.addClass("d-none");
-            backTick.removeClass("d-block");
+            backTick.removeClass("d-none").addClass("d-block");
+
+            data.forEach(function (item) {
+              const titleWords = item.title.toLowerCase().split(" ");
+              if (
+                item.tags.map((tag) => tag.toLowerCase()).includes(searchTag) ||
+                titleWords.includes(searchTag) ||
+                item.title.toLowerCase().includes(searchTag)
+              ) {
+                const card = createCard(item);
+                cardContents.append(card);
+              }
+            });
           });
-          },
-          error: function (xhr, status, error) {
-            console.error("Error:", error);
-          },
         });
 
-        function blogCard(news) {
-          const cardContents = document.getElementById("cardContents");
-          cardContents.innerHTML = "";
-
-          news.forEach((item) => {
-            const card = `
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
-                    <a href="#"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
-                    <div class="card-body">
-                        <a href="#"><h5 class="card-title">${item.title}</h5></a>
-                        <a href="#"><p class="card-text">${item.content}</p></a>
-                    </div>
-                </div>
-            </div>
-          `;
-            cardContents.innerHTML += card;
+        // JSON dosyasını carda yazdırma fonksiyonu
+        function renderBlogCards(data) {
+          const cardContents = $("#cardContents");
+          cardContents.empty();
+          data.forEach((item) => {
+            cardContents.append(createCard(item));
           });
-        };
-        
-      });
-      //
-      
+        }
 
+        // İlk veri yükleme ve geri buton işlevi
+        fetchData(function (data) {
+          renderBlogCards(data);
+
+          $("#backTick").on("click", function () {
+            renderBlogCards(data);
+            $("#backTick").addClass("d-none").removeClass("d-block");
+          });
+        });
+
+        // Carousel içeriği oluşturma                         carousel a href ekle
+        function updateCarousel(data) {
+          var carouselInner = $("#carousel-inner");
+          carouselInner.empty();
+
+          data.forEach(function (post, index) {
+            var activeClass = index === 0 ? "active" : "";
+            var carouselItem = `
+        <div class="carousel-item ${activeClass}">
+          <img src="${post.image}" class="d-block w-100" alt="${post.title}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="bg-dark d-inline" style="font-family: 'Courier New', Courier, monospace;">${post.title}</h5>
+          </div>
+        </div>`;
+            carouselInner.append(carouselItem);
+          });
+        }
+
+        fetchData(updateCarousel);
+
+        // Latest news işlevi
+        function updateLatestNews(data) {
+          let lasestnews = $("#lasestNews");
+          lasestnews.empty();
+          data.reverse().forEach(function (post) {
+            var lasestNewsItem = `
+        <a href=""><p>${post.title}</p>
+        <p class="hover">Read More<i class="fa-duotone fa-solid fa-angles-right ms-1"></i></a></p>
+        <hr>`;
+            lasestnews.append(lasestNewsItem);
+          });
+        }
+        fetchData(updateLatestNews);
+
+        //Filter buton işlevi
+        $("#button-row button").on("click", function () {
+          $("#button-row button")
+            .removeClass("btn-primary")
+            .addClass("btn-outline-primary");
+          $(this).removeClass("btn-outline-primary").addClass("btn-primary");
+          const category = $(this).data("category");
+          fetchData(function (data) {
+            const cardSection = $("#cardContents");
+            cardSection.empty();
+
+            data.forEach(function (post) {
+              if (category === "All" || post.category === category) {
+                const card = createCard(post);
+                cardSection.append(card);
+              }
+            });
+          });
+        });
+      });
     </script>
   </body>
 </html>

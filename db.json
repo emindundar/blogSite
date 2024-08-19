@@ -1,21 +1,27 @@
-[
-  [
+{
+  "blogPosts": [
     {
       "id": 0,
-      "title": "Rainforest raises $8.5M to help software companies embed financial services, payments",
-      "image": "https://picsum.photos/200/300",
-      "category": "Fintech",
-      "author": "Mary Ann Azevedo",
-      "authorPic": "author1.jpg",
-      "published_date": "2023-10-01",
-      "reading_time": "5 minutes",
-      "content": "In November 2019, Andreessen Horowitz General Partner Angela Strange famously declared that, “Every company will be a fintech company.” Specifically, Strange projected that — in the not-too-d...",
-      "tags": ["Fintech", "Writing", "Startups", "Investments", "Finance"]
+      "title": "Golden State Warriors Win NBA Championship After Thrilling Game 7",
+      "image": "resimvs/1nba.jpg",
+      "category": "Basketball",
+      "author": "John Doe",
+      "authorPic": "author2.jpg",
+      "published_date": "2024-06-20",
+      "reading_time": "4 minutes",
+      "content": "The Golden State Warriors secured their seventh NBA championship in franchise history after a nail-biting Game 7 against the Boston Celtics. The game was a classic, with both teams exchanging leads until the final seconds...",
+      "tags": [
+        "Basketball",
+        "NBA",
+        "Championship",
+        "Golden State Warriors",
+        "Sports"
+      ]
     },
     {
       "id": 1,
       "title": "Top 10 Movies of 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/4.jpg",
       "category": "Movie",
       "author": "Jane Doe",
       "authorPic": "author2.jpg",
@@ -27,7 +33,7 @@
     {
       "id": 2,
       "title": "The Most Memorable Moments of the 2024 Olympics",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/2.jpg",
       "category": "Sport",
       "author": "John Smith",
       "authorPic": "author3.jpg",
@@ -39,7 +45,7 @@
     {
       "id": 3,
       "title": "Exploring Modern Art: The 2024 Exhibitions",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/3.jpg",
       "category": "Art",
       "author": "Emily Turner",
       "authorPic": "author4.jpg",
@@ -51,7 +57,7 @@
     {
       "id": 4,
       "title": "Indie Movies Making a Big Splash in 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/1.jpg",
       "category": "Movie",
       "author": "Chris Evans",
       "authorPic": "author5.jpg",
@@ -63,7 +69,7 @@
     {
       "id": 5,
       "title": "The Rise of Women's Football in 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/5.jpg",
       "category": "Sport",
       "author": "Samantha Lee",
       "authorPic": "author6.jpg",
@@ -75,7 +81,7 @@
     {
       "id": 6,
       "title": "Art Basel 2024: Highlights from the World's Leading Art Fair",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/6.jpg",
       "category": "Art",
       "author": "Amanda Clarke",
       "authorPic": "author7.jpg",
@@ -87,7 +93,7 @@
     {
       "id": 7,
       "title": "The Return of Noir: 2024's Most Stylish Films",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/7.jpg",
       "category": "Movie",
       "author": "Laura Brown",
       "authorPic": "author8.jpg",
@@ -99,7 +105,7 @@
     {
       "id": 8,
       "title": "2024: The Year of Record-Breaking Sporting Events",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/8.jpg",
       "category": "Sport",
       "author": "David Ross",
       "authorPic": "author9.jpg",
@@ -111,7 +117,7 @@
     {
       "id": 9,
       "title": "Understanding Abstract Art: A 2024 Guide",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/9.jpg",
       "category": "Art",
       "author": "Sophia Martinez",
       "authorPic": "author10.jpg",
@@ -123,7 +129,7 @@
     {
       "id": 10,
       "title": "Emerging Artists to Watch in 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/10.jpg",
       "category": "Art",
       "author": "Liam Johnson",
       "authorPic": "author11.jpg",
@@ -135,7 +141,7 @@
     {
       "id": 11,
       "title": "The Evolution of Film Noir in Modern Cinema",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/11.jpg",
       "category": "Movie",
       "author": "Olivia Martinez",
       "authorPic": "author12.jpg",
@@ -148,7 +154,7 @@
     {
       "id": 12,
       "title": "Highlighting Top Sports Moments of 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/12.jpg",
       "category": "Sport",
       "author": "Ella Green",
       "authorPic": "author13.jpg",
@@ -160,7 +166,7 @@
     {
       "id": 13,
       "title": "The Best Action Movies of 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/13.jpg",
       "category": "Movie",
       "author": "Michael Brown",
       "authorPic": "author14.jpg",
@@ -172,7 +178,7 @@
     {
       "id": 14,
       "title": "Innovative Sports Technologies in 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/14.jpeg",
       "category": "Sport",
       "author": "Nathan Adams",
       "authorPic": "author15.jpg",
@@ -184,7 +190,7 @@
     {
       "id": 15,
       "title": "Art Trends to Watch in 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/15.jpg",
       "category": "Art",
       "author": "Zoe Clark",
       "authorPic": "author16.jpg",
@@ -196,7 +202,7 @@
     {
       "id": 16,
       "title": "The Rise of Streaming Platforms in 2024",
-      "image": "https://picsum.photos/200/300",
+      "image": "resimvs/16.jpeg",
       "category": "Movie",
       "author": "Sophia Turner",
       "authorPic": "author17.jpg",
@@ -207,8 +213,8 @@
     },
     {
       "id": 17,
-      "title": "Sporting Breakthroughs of 2024",
-      "image": "https://picsum.photos/200/300",
+      "title": "The Rise of Streaming Platforms in 2020",
+      "image": "resimvs/17.jpeg",
       "category": "Sport",
       "author": "Lucas Gray",
       "authorPic": "author18.jpg",
@@ -224,4 +230,4 @@
       ]
     }
   ]
-]
+}
