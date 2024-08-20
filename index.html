@@ -312,7 +312,7 @@
       $(document).ready(function () {
         const apiUrl = "http://localhost:3000/blogPosts";
 
-        // AJAX çağrısı yapma ve veri işleme
+        //Ajax çağrısı yapma
         function fetchData(callback) {
           $.ajax({
             url: apiUrl,
@@ -327,23 +327,24 @@
           });
         }
 
-        // Card oluşturma fonksiyonu
+        //Card oluşturma fonksiyonu
         function createCard(item) {
           return `
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card me-4 mt-4 shadow bg-body rounded" style="width: 100%">
-          <a href="#"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
+          <a href="blog.html?id=${item.id}"><img class="card-img-top" src="${item.image}" alt="Card image cap"/></a>
           <div class="card-body">
-            <a href="#"><h5 class="card-title">${item.title}</h5></a>
-            <a href="#"><p class="card-text">${item.content}</p></a>
+           <a href="blog.html?id=${item.id}"><h5 class="card-title">${item.title}</h5></a>
+            <a href="blog.html?id=${item.id}"><p class="card-text">${item.content}</p></a>
           </div>
         </div>
       </div>`;
         }
 
-        // Arama buton işlevi
+        //Arama buton işlevi
         $("#searchBtn").on("click", function () {
           const searchTag = $("#search").val().toLowerCase();
+          
           fetchData(function (data) {
             const cardContents = $("#cardContents");
             cardContents.empty();
@@ -364,7 +365,7 @@
           });
         });
 
-        // JSON dosyasını carda yazdırma fonksiyonu
+        //Json dosyasını carda yazdırma fonksiyonu
         function renderBlogCards(data) {
           const cardContents = $("#cardContents");
           cardContents.empty();
@@ -373,7 +374,7 @@
           });
         }
 
-        // İlk veri yükleme ve geri buton işlevi
+        //İlk veri yükleme ve geri buton işlevi
         fetchData(function (data) {
           renderBlogCards(data);
 
@@ -383,7 +384,7 @@
           });
         });
 
-        // Carousel içeriği oluşturma                         carousel a href ekle
+        //Carousel içeriği oluşturma
         function updateCarousel(data) {
           var carouselInner = $("#carousel-inner");
           carouselInner.empty();
@@ -392,26 +393,30 @@
             var activeClass = index === 0 ? "active" : "";
             var carouselItem = `
         <div class="carousel-item ${activeClass}">
-          <img src="${post.image}" class="d-block w-100" alt="${post.title}">
-          <div class="carousel-caption d-none d-md-block">
-            <h5 class="bg-dark d-inline" style="font-family: 'Courier New', Courier, monospace;">${post.title}</h5>
-          </div>
-        </div>`;
+          <a href="blog.html?id=${post.id}">
+              <img src="${post.image}" class="d-block w-100" alt="${post.title}">
+              <div class="carousel-caption d-none d-md-block">
+                  <h5 class="bg-dark d-inline" style="font-family: 'Courier New', Courier, monospace;">${post.title}</h5>
+              </div>
+          </a>
+        </div>
+        `;
             carouselInner.append(carouselItem);
           });
         }
 
         fetchData(updateCarousel);
 
-        // Latest news işlevi
+        //Latest news işlevi
         function updateLatestNews(data) {
           let lasestnews = $("#lasestNews");
           lasestnews.empty();
           data.reverse().forEach(function (post) {
             var lasestNewsItem = `
-        <a href=""><p>${post.title}</p>
-        <p class="hover">Read More<i class="fa-duotone fa-solid fa-angles-right ms-1"></i></a></p>
-        <hr>`;
+            
+            <a href="blog.html?id=${post.id}"><p>${post.title}</p>
+            <p class="hover">Read More<i class="fa-duotone fa-solid fa-angles-right ms-1"></i></a></p>
+            <hr>`;
             lasestnews.append(lasestNewsItem);
           });
         }
