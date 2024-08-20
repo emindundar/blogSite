@@ -310,7 +310,7 @@
     <!-- Footer End -->
     <script>
       $(document).ready(function () {
-        const apiUrl = "http://localhost:3000/blogPosts";
+        const apiUrl = "https://emindundar.github.io/dbBlog.json";
 
         //Ajax çağrısı yapma
         function fetchData(callback) {
@@ -343,7 +343,11 @@
 
         //Arama buton işlevi
         $("#searchBtn").on("click", function () {
-          const searchTag = $("#search").val().toLowerCase();
+          if($("#search").val().trim()==""){
+            alert("Lütfen bir arama yapınız.")
+          }
+          
+          const searchTag = $("#search").val().toLowerCase().trim();
           
           fetchData(function (data) {
             const cardContents = $("#cardContents");

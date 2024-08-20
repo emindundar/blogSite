@@ -96,7 +96,7 @@
       $(document).ready(function(){
         const urlParams = new URLSearchParams(window.location.search);
         const blogId = Number(urlParams.get("id"));
-        const apiUrl = `http://localhost:3001/${blogId}`;
+        const apiUrl = `https://emindundar.github.io/${blogId}.json`;
 
         function fetchData(callback){
             $.ajax({
@@ -104,11 +104,10 @@
                 method: "GET",
                 dataType: "json",
                 success: function(data){
-                    console.log(data);
                     callback(data);
                 },
                 error: function(xhr, status, error){
-                    console.error("Error:", error);
+                    console.error("Error: ", error);
                 },
             });
         }
